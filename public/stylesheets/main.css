@@ -7,3 +7,34 @@ header{
     height: 25px;
     width: 100%;
 }
+#main-menu{
+    height: 50px;
+    width: 1000px;
+    border: 0px solid black;
+    overflow: hidden;
+    position: relative;
+}
+#main-menu>ul{
+    margin-left: 10px;
+}
+#main-menu>ul>li{
+    display: inline-block;
+    width: 190px;
+    height: 50px;
+    border: 1px solid black;
+}
+.prev, .next{
+    display: inline-block;
+    width: 10px;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+.prev{
+    left: 0;
+}
+.next{
+    right: 0;
+}

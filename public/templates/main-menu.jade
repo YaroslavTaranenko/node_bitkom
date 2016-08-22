@@ -1,4 +1,8 @@
 //
    Created by yaroslav on 8/16/16.
-
-div main menu
+# {{menuLength}}
+div#main-menu 
+    .prev.left.fa.fa-angle-left
+    ul(ng-style="menuLength")
+        li(ng-repeat="mi in mainMenu.item") {{mi.title}}
+    .next.right.fa.fa-angle-right

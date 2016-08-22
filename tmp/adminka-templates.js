@@ -14,7 +14,7 @@ angular.module("templates/adminka/category-item.jade", []).run(["$templateCache"
 
 angular.module("templates/adminka/side-panel.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/adminka/side-panel.jade",
-    "<!--Created by yaroslav on 8/16/16.--><div class=\"side-panel\"><div class=\"logo\"><img src=\"/images/logo.png\" height=\"50\"></div><ul class=\"menu\"><li><a href=\"/admin/categories\">Категории</a></li><li><a href=\"/admin/users\">Пользователи</a></li><li><a href=\"/admin/catalog\">Каталог</a></li></ul></div>");
+    "<!--Created by yaroslav on 8/16/16.--><div class=\"side-panel\"><div class=\"logo\"><a href=\"/\"><img src=\"/images/logo.png\" height=\"50\"></a></div><ul class=\"menu\"><li><a href=\"/admin/categories\">Категории</a></li><li><a href=\"/admin/users\">Пользователи</a></li><li><a href=\"/admin/catalog\">Каталог</a></li></ul></div>");
 }]);
 
 angular.module("templates/adminka/top-panel.jade", []).run(["$templateCache", function($templateCache) {
