@@ -41,13 +41,13 @@
                     this.next = function(){
                         var ml = parseInt($scope.menuLength["margin-left"]);
                         
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             $scope.nextEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml - 197) + "px";
-                        ml = ml - 197;
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        $scope.menuLength["margin-left"] = (ml - 193) + "px";
+                        ml = ml - 193;
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{
@@ -66,15 +66,15 @@
                             $scope.prevEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml + 197) + "px";
-                        ml = ml + 197;
+                        $scope.menuLength["margin-left"] = (ml + 193) + "px";
+                        ml = ml + 193;
                         if(ml >= 10){
                             //alert(ml);
                             $scope.prevEnd = true;                            
                         }else{
                             $scope.prevEnd = false;
                         }
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{
@@ -109,7 +109,8 @@
 angular.module("templates/main-menu.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/main-menu.jade",
     "<!--Created by yaroslav on 8/16/16.\n" +
-    " # {{prevEnd}}--><div id=\"main-menu\"> <div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\"><a href=\"/{{mi.code}}\"><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div></a></li></ul><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div>");
+    " # {{prevEnd}}\n" +
+    " --><div id=\"main-menu\"> <div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\"><a href=\"/{{mi.code}}\"><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div></a></li></ul><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

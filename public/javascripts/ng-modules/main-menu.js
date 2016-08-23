@@ -18,13 +18,13 @@
                     this.next = function(){
                         var ml = parseInt($scope.menuLength["margin-left"]);
                         
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             $scope.nextEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml - 197) + "px";
-                        ml = ml - 197;
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        $scope.menuLength["margin-left"] = (ml - 193) + "px";
+                        ml = ml - 193;
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{
@@ -43,15 +43,15 @@
                             $scope.prevEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml + 197) + "px";
-                        ml = ml + 197;
+                        $scope.menuLength["margin-left"] = (ml + 193) + "px";
+                        ml = ml + 193;
                         if(ml >= 10){
                             //alert(ml);
                             $scope.prevEnd = true;                            
                         }else{
                             $scope.prevEnd = false;
                         }
-                        if(ml <= (($scope.mainMenu.item.length - 5)*197 -10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{

@@ -9,21 +9,21 @@ header{
 }
 #main-menu{
     height: 50px;
-    width: 1000px;
+    width: 980px;
     border: 0px solid black;
     overflow: hidden;
     position: relative;
 }
 #main-menu>ul{
-    margin-left: 10px; 
+    margin-left: 10px;
     transition-property: "margin";
     transition-duration: 0.5s;
 }
 #main-menu>ul>li{
     display: inline-block;
-    width: 192px;
+    width: 188px;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid #41b8d6;
     margin-right: 5px;
     
 }
@@ -34,7 +34,7 @@ header{
 }
 #main-menu>ul>li .title{
     display: inline-block;
-    width: 138px;
+    width: 135px;
     text-align: center;
 }
 #main-menu>ul>li img{
@@ -53,15 +53,18 @@ header{
     text-align: center;
     color: #fff;
     font-weight: bold;
+    z-index: 1000;
 }
 .prev:hover, .next:hover{
     background-color: #4793a7;
 }
 .prev{
-    left: 0;
+    left: 0px;
+    border-radius: 5px 0 0 5px;
 }
 .next{
-    right: 0;
+    right: 0px;
+    border-radius: 0 5px 5px 0;
 }
 .mm-disabled{
     background-color: #ccc;
