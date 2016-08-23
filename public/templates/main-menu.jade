@@ -1,8 +1,11 @@
 //
    Created by yaroslav on 8/16/16.
-# {{menuLength}}
+    # {{prevEnd}}
 div#main-menu 
-    .prev.left.fa.fa-angle-left
+    .prev.left.fa.fa-angle-left(ng-click="mm.prev()"  ng-class="{'mm-disabled': prevEnd}")
     ul(ng-style="menuLength")
-        li(ng-repeat="mi in mainMenu.item") {{mi.title}}
-    .next.right.fa.fa-angle-right
+        li(ng-repeat="mi in mainMenu.item")
+            a(href="/{{mi.code}}")
+                img.left(ng-src="/images/menu/{{mi.icon}}")  
+                .title{{mi.title}}
+    .next.right.fa.fa-angle-right(ng-click="mm.next()" ng-class="{'mm-disabled': nextEnd}")

@@ -2,7 +2,8 @@ angular.module('templates', ['templates/main-menu.jade', 'templates/test.jade', 
 
 angular.module("templates/main-menu.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/main-menu.jade",
-    "<!--Created by yaroslav on 8/16/16.--># {{menuLength}}<div id=\"main-menu\"> <div class=\"prev left fa fa-angle-left\"></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\">{{mi.title}}</li></ul><div class=\"next right fa fa-angle-right\"></div></div>");
+    "<!--Created by yaroslav on 8/16/16.\n" +
+    " # {{prevEnd}}--><div id=\"main-menu\"> <div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\"><a href=\"/{{mi.code}}\"><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div></a></li></ul><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

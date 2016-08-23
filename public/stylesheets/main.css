@@ -15,13 +15,31 @@ header{
     position: relative;
 }
 #main-menu>ul{
-    margin-left: 10px;
+    margin-left: 10px; 
+    transition-property: "margin";
+    transition-duration: 0.5s;
 }
 #main-menu>ul>li{
     display: inline-block;
-    width: 190px;
+    width: 192px;
     height: 50px;
     border: 1px solid black;
+    margin-right: 5px;
+    
+}
+#main-menu>ul>li>a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#main-menu>ul>li .title{
+    display: inline-block;
+    width: 138px;
+    text-align: center;
+}
+#main-menu>ul>li img{
+    width: 50px;
+    height: 50px;
 }
 .prev, .next{
     display: inline-block;
@@ -31,10 +49,24 @@ header{
     position: absolute;
     top: 0;
     cursor: pointer;
+    background-color: #476ba7;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+.prev:hover, .next:hover{
+    background-color: #4793a7;
 }
 .prev{
     left: 0;
 }
 .next{
     right: 0;
+}
+.mm-disabled{
+    background-color: #ccc;
+    cursor: default;
+}
+.mm-disabled:hover{
+    background-color: #ccc;
 }
