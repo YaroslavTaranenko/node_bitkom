@@ -14,6 +14,7 @@
                             $scope.mainMenu = resp.data.interface[0];
                             $scope.menuLength = {"width": ($scope.mainMenu.item.length * 200)+"px", "margin-left": "10px"};
                             $scope.prevEnd = true;
+                            if($scope.mainMenu.item.length <= 5)$scope.nextEnd = true;
                         }, function(err){alert(err.data);});
                     this.next = function(){
                         var ml = parseInt($scope.menuLength["margin-left"]);
@@ -57,6 +58,18 @@
                         }else{
                             $scope.nextEnd = false;
                         }
+                    };
+                    this.over = function(mi, $event){
+                        //alert(mi.title);
+                        this.pos($event);
+                        $scope.cMenu = mi;
+                    };
+                    this.leave = function(){
+                        $scope.cMenu = null;
+                    };
+                    this.pos = function($event){
+                        //alert(angular.element($event.target).prop('offsetLeft'));
+                        $scope.subPos = {"left": angular.element($event.target).prop('offsetLeft') + 'px'};
                     }
                 },
                 controllerAs: "mm"
