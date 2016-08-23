@@ -4,7 +4,11 @@ angular.module("templates/main-menu.jade", []).run(["$templateCache", function($
   $templateCache.put("templates/main-menu.jade",
     "<!--Created by yaroslav on 8/16/16.\n" +
     " # {{prevEnd}}\n" +
-    " --><div id=\"main-menu\"> <div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\"><a href=\"/{{mi.code}}\"><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div></a></li></ul><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div>");
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    " --><div id=\"main-menu\"> <div class=\"subprev\"><div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\"><a href=\"/{{mi.code}}\"><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div></a></li></ul><div class=\"subnext\"><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div></div><div id=\"subitems\"><ul><li ng-repeat=\"si in cMenu\">{{si.title}}</li></ul></div><button ng-mouseover=\"count = count + 1\" ng-init=\"count=0\">Increment (when mouse is over)</button><div class=\"count\">count: {{count}}</div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

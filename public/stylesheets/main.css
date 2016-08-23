@@ -41,6 +41,14 @@ header{
     width: 50px;
     height: 50px;
 }
+.subnext, .subprev{
+    display: inline-block;
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+}
 .prev, .next{
     display: inline-block;
     width: 10px;
@@ -59,13 +67,21 @@ header{
     background-color: #4793a7;
 }
 .prev{
-    left: 0px;
+    
     border-radius: 5px 0 0 5px;
 }
 .next{
-    right: 0px;
+    
     border-radius: 0 5px 5px 0;
+    
 }
+.subnext{
+    right: 0;
+}
+.subprev{
+    left: 0;
+}
+
 .mm-disabled{
     background-color: #ccc;
     cursor: default;

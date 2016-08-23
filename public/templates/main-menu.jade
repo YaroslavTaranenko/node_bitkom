@@ -1,12 +1,28 @@
 //
    Created by yaroslav on 8/16/16.
     # {{prevEnd}}
+
+
+
+
     
 div#main-menu 
-    .prev.left.fa.fa-angle-left(ng-click="mm.prev()"  ng-class="{'mm-disabled': prevEnd}")
+    .subprev
+        .prev.left.fa.fa-angle-left(ng-click="mm.prev()"  ng-class="{'mm-disabled': prevEnd}")
     ul(ng-style="menuLength")
         li(ng-repeat="mi in mainMenu.item")
             a(href="/{{mi.code}}")
                 img.left(ng-src="/images/menu/{{mi.icon}}")  
-                .title{{mi.title}}
-    .next.right.fa.fa-angle-right(ng-click="mm.next()" ng-class="{'mm-disabled': nextEnd}")
+                .title() {{mi.title}}
+    .subnext
+        .next.right.fa.fa-angle-right(ng-click="mm.next()" ng-class="{'mm-disabled': nextEnd}")
+div#subitems
+    ul
+        li(ng-repeat="si in cMenu"){{si.title}}
+        
+
+
+button(ng-mouseover="count = count + 1" ng-init="count=0") Increment (when mouse is over)
+  
+
+.count count: {{count}}
