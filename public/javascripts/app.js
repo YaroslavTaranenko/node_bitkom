@@ -2,7 +2,7 @@
  * Created by yaroslav on 8/10/16.
  */
 (function() {
-    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu']);
+    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu', "myHeader"]);
 
     app.directive("scroll", function ($window) {
         return function (scope, element, attrs) {

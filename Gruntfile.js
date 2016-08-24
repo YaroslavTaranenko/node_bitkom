@@ -128,4 +128,5 @@ module.exports = function(grunt){
 
     grunt.registerTask('default', ['express:dev', 'watch']);
     grunt.registerTask('admin', ['html2js:admin', 'concat:admin', 'uglify:admin']);
+    grunt.registerTask('main', ['html2js:main', 'concat:main', 'uglify:main']);
 };

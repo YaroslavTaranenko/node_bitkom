@@ -10,12 +10,14 @@ html(ng-app="bitkom")
         script(src="/javascripts/angular-animate.js")
 
     body
-        header
+        top-panel
+        header            
             .container
-                top-panel
+                my-header.w-p100.iblock
                 main-menu
 
-        div#header(scroll ng-class='{min:boolChangeClass}')
+        div(scroll ng-class='{min:boolChangeClass}')
+        # path{{path}}
         content-wrapper
             block content
         footer

@@ -10,6 +10,7 @@ ul{
 }
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 h1{
@@ -40,3 +41,22 @@ h1{
 .p-10{padding: 10px;}.p-20{padding: 20px;}.p-30{padding: 30px;}.p-40{padding: 40px;}.p-50{padding: 50px;}
 
 .lh-50{line-height: 50px;}
+[tip]{
+    position: relative;
+    pointer-events: auto;
+}
+[tip]:hover:after{
+    text-align: center;
+    padding: 10px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    position: absolute;
+    top: -41px;
+    left: 0;
+    display: inline-block;
+    background-color: #444444;
+    color: #fff;
+    content: attr(tip);
+    pointer-events: none;
+}

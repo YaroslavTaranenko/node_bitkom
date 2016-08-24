@@ -17,6 +17,8 @@
                             if($scope.mainMenu.item.length <= 5)$scope.nextEnd = true;
                         }, function(err){alert(err.data);});
                     this.next = function(){
+                        $scope.cMenu = null;
+                        $scope.csMenu = null;
                         var ml = parseInt($scope.menuLength["margin-left"]);
                         
                         if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
@@ -37,8 +39,10 @@
                         }else{
                             $scope.prevEnd = false;
                         }
-                    }
+                    };
                     this.prev = function(){
+                        $scope.cMenu = null;
+                        $scope.scMenu = null;
                         var ml = parseInt($scope.menuLength["margin-left"]);                        
                         if(ml >= 10){
                             $scope.prevEnd = true;
@@ -62,14 +66,29 @@
                     this.over = function(mi, $event){
                         //alert(mi.title);
                         this.pos($event);
-                        $scope.cMenu = mi;
+                        if($scope.cMenu == mi){
+                            $scope.cMenu = null;
+                        }else{
+                            $scope.cMenu = mi;
+                        }
+                    };
+                    this.sover = function(smi, $event){
+                        if($scope.csMenu == smi){
+                            $scope.csMenu = null;
+                        }else{
+                            $scope.csMenu = smi;
+                        }
+                        $scope.ssubPos = {"left": (angular.element($event.target).prop('offsetLeft') + 250) + 'px', "top": (angular.element($event.target).prop('offsetTop')) + 'px'};
+                    };
+                    this.sclear = function(){
+                        $scope.csMenu = null;
                     };
                     this.leave = function(){
                         $scope.cMenu = null;
                     };
                     this.pos = function($event){
                         //alert(angular.element($event.target).prop('offsetLeft'));
-                        $scope.subPos = {"left": angular.element($event.target).prop('offsetLeft') + 'px'};
+                        $scope.subPos = {"left": angular.element($event.target).prop('offsetLeft') + 'px', "top": (angular.element($event.target).prop('offsetTop') + 52) + 'px'};
                     }
                 },
                 controllerAs: "mm"

@@ -60,25 +60,7 @@ header{
     height: 50px;
     display: inline-block;
 }
-[tip]{
-    position: relative;
-    pointer-events: auto;
-}
-[tip]:hover:after{
-    text-align: center;
-    padding: 10px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    position: absolute;
-    top: -41px;
-    left: 0;
-    display: inline-block;
-    background-color: #444444;
-    color: #fff;
-    content: attr(tip);
-    pointer-events: none;
-}
+
 .fon{
     position: fixed;
     left: 0;
