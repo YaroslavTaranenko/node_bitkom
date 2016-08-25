@@ -2,7 +2,7 @@
  * Created by yaroslav on 8/10/16.
  */
 (function() {
-    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu', "myHeader"]);
+    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu', "myHeader", 'mySlider']);
 
     app.directive("scroll", function ($window) {
         return function (scope, element, attrs) {
@@ -16,9 +16,13 @@
             });
         };
     });
+    app.controller('mainCtrl', function($scope){
+        $scope.slides = [{title: 'slide 1'}, {title: 'slide 2'}, {title: 'slide 3'}, {title: 'slide 5'}];
+    });
 
     app.controller('TestCtlr', function(){
         //alert('test');
+        
     });
 
 })();;/* 
@@ -37,8 +41,8 @@
             templateUrl: "templates/calls.jade",
             controller: function($location, $scope, $http){
                 //alert('top-panel');
-                $scope.path = $location.url();
-                alert($scope.path);
+//                $scope.path = $location.path();
+//                alert($scope.path);
             },
             controllerAs: "hd"
         };
@@ -89,13 +93,13 @@
                         $scope.csMenu = null;
                         var ml = parseInt($scope.menuLength["margin-left"]);
                         
-                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*197 - 10)*-1){
                             $scope.nextEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml - 193) + "px";
-                        ml = ml - 193;
-                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
+                        $scope.menuLength["margin-left"] = (ml - 197) + "px";
+                        ml = ml - 197;
+                        if(ml <= (($scope.mainMenu.item.length - 5)*197 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{
@@ -116,15 +120,15 @@
                             $scope.prevEnd = true;
                             return;
                         }
-                        $scope.menuLength["margin-left"] = (ml + 193) + "px";
-                        ml = ml + 193;
+                        $scope.menuLength["margin-left"] = (ml + 197) + "px";
+                        ml = ml + 197;
                         if(ml >= 10){
                             //alert(ml);
                             $scope.prevEnd = true;                            
                         }else{
                             $scope.prevEnd = false;
                         }
-                        if(ml <= (($scope.mainMenu.item.length - 5)*193 - 10)*-1){
+                        if(ml <= (($scope.mainMenu.item.length - 5)*197 - 10)*-1){
                             //alert(ml);
                             $scope.nextEnd = true;                            
                         }else{
@@ -169,6 +173,59 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+(function() {
+    var app = angular.module('mySlider', []);
+
+    app.directive('mySlider', function(){
+        return{
+            restrict: "E",
+            templateUrl: "templates/slider.jade",
+            scope: {
+                slids: "="
+            },
+            controller: function($scope, $http){
+                this.cIndex = 0;
+                this.next = function(){
+                    
+                    if(this.cIndex >= $scope.slids.length - 1){
+                        this.cIndex = 0;
+                    }else{
+                        this.cIndex++;
+                    }
+                    //alert(this.cIndex);
+                    this.changeSlide();
+                };
+                this.changeSlide = function(){
+                    
+                    for(var i = 0; i < $scope.slids.length; i++){
+                        $scope.slids[i].show = false;
+                    };
+                    
+                    $scope.slids[this.cIndex].show = true;
+                    //alert($scope.slids.length);
+                };
+                this.showSlide = function(idx){                    
+                    if(idx > ($scope.slids.length - 1)){
+                        return;
+                    }else{
+                        this.cIndex = idx;
+                    }
+                    
+                    this.changeSlide();
+                };
+                this.showSlide(0);
+            },
+            controllerAs: "sl"
+        };
+    });
+
+})();
+
+;/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
 (function() {
@@ -203,11 +260,11 @@
             };
         });
 
-})();;angular.module('templates', ['templates/calls.jade', 'templates/header.jade', 'templates/main-menu.jade', 'templates/test.jade', 'templates/top-menu.jade', 'templates/top-panel.jade']);
+})();;angular.module('templates', ['templates/calls.jade', 'templates/header.jade', 'templates/main-menu.jade', 'templates/slider.jade', 'templates/test.jade', 'templates/top-menu.jade', 'templates/top-panel.jade']);
 
 angular.module("templates/calls.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/calls.jade",
-    "<div class=\"call-wrapper\"># {{path}}<ul id=\"call-block\"><li><i class=\"fa fa-phone\"></i><span>&nbsp;(7252)29-27-83</span></li><li> <i class=\"fa fa-mobile\"></i><span>&nbsp;+7(708)478-67-07</span></li><li> <i class=\"fa fa-mobile\"></i><span>&nbsp;+7(771)052-48-48</span></li><li> <a href tip=\"Заказать звонок\"><i class=\"fa fa-phone\"></i><span>&nbsp;Позвонить мне</span></a></li></ul></div>");
+    "<div class=\"call-wrapper\"><ul id=\"call-block\"><li><i class=\"fa fa-phone\"></i><span>&nbsp;(7252)29-27-83</span></li><li> <i class=\"fa fa-mobile\"></i><span>&nbsp;+7(708)478-67-07</span></li><li> <i class=\"fa fa-mobile\"></i><span>&nbsp;+7(771)052-48-48</span></li><li> <a href tip=\"Заказать звонок\"><i class=\"fa fa-phone\"></i><span>&nbsp;Позвонить мне</span></a></li></ul></div>");
 }]);
 
 angular.module("templates/header.jade", []).run(["$templateCache", function($templateCache) {
@@ -220,6 +277,11 @@ angular.module("templates/main-menu.jade", []).run(["$templateCache", function($
     "<!--Created by yaroslav on 8/16/16.\n" +
     " # {{cMenu}}\n" +
     " # {{ssubPos}} --><div class=\"menu-wrapper\"><div id=\"main-menu\"><div class=\"subprev\"><div ng-click=\"mm.prev()\" ng-class=\"{'mm-disabled': prevEnd}\" class=\"prev left fa fa-angle-left\"></div></div><ul ng-style=\"menuLength\"><li ng-repeat=\"mi in mainMenu.item\" ng-click=\"mm.over(mi, $event); mm.sclear()\" class=\"vt\"><a href><img ng-src=\"/images/menu/{{mi.icon}}\" class=\"left\"><div class=\"title\">{{mi.title}}</div><i ng-show=\"mi.subitems.length &gt; 0\" class=\"fa fa-angle-down\"></i></a></li></ul><div class=\"subnext\"><div ng-click=\"mm.next()\" ng-class=\"{'mm-disabled': nextEnd}\" class=\"next right fa fa-angle-right\"></div></div></div><div id=\"subitems\" ng-style=\"subPos\"><ul><li ng-repeat=\"si in cMenu.subitems\" ng-click=\"mm.sover(si, $event)\"><a href><img ng-src=\"/images/menu/{{si.icon}}\" class=\"h-50 w-50 left\"><div class=\"title\">{{si.title}}</div></a><i ng-show=\"si.subitems.length &gt; 0\" class=\"fa fa-angle-right\"></i></li></ul><div id=\"subitems\" ng-style=\"ssubPos\"><ul><li ng-repeat=\"ssi in csMenu.subitems\"><a href><img ng-src=\"/images/menu/{{ssi.icon}}\" class=\"h-50 w-50 left\"><div class=\"title\">{{ssi.title}}                </div></a></li></ul></div></div></div>");
+}]);
+
+angular.module("templates/slider.jade", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("templates/slider.jade",
+    "<div id=\"main-slider\"><ul><li ng-repeat=\"slide in slids\" ng-show=\"slide.show\" class=\"animation-fade\">{{slide.title}}</li></ul><button ng-click=\"sl.next()\">Next</button></div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

@@ -9,13 +9,14 @@ html(ng-app="bitkom")
         script(src="/javascripts/angular.min.js")
         script(src="/javascripts/angular-animate.js")
 
-    body
+    body(ng-controller="mainCtrl")
         top-panel
         header            
             .container
                 my-header.w-p100.iblock
                 main-menu
-
+        .container
+            my-slider(slids="slides")
         div(scroll ng-class='{min:boolChangeClass}')
         # path{{path}}
         content-wrapper

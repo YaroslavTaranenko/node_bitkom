@@ -17,10 +17,16 @@ var im = require('imagemagick');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('admin', { title: 'Bitkom: admin' });
+    res.render('admin', { title: 'Битком: админка' });
 });
 router.get('/categories', function(req, res, next) {
-    res.render('categories', { title: 'Bitkom: categories' });
+    res.render('categories', { title: 'Битком: категории' });
+});
+router.get('/catalog', function(req, res, next) {
+    res.render('catalog', { title: 'Битком: каталог' });
+});
+router.get('/types', function(req, res, next) {
+    res.render('types', { title: 'Битком: Типы инфоблоков' });
 });
 
 router.post('/upload', function(req, res, next){

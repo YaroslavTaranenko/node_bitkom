@@ -23,9 +23,9 @@ h1{
 .iblock{display: inline-block;}.block{display: block;}
 .right{float: right;}.left{float:left;}
 .container{width: 1000px; margin: auto; height: 100%;}
-.w-50{width: 50px;}.w-100{width: 100px;}.w-200{width: 200px;}.w-300{width:300px;}
+.w-50{width: 50px;}.w-100{width: 100px;}.w-150{width:150px;}.w-200{width: 200px;}.w-300{width:300px;}
 .w-p10{width: 10%;}.w-p20{width: 20%;}.w-p30{width: 30%;}.w-p40{width: 40%;}.w-p50{width: 50%;}.w-p60{width: 60%;}.w-p70{width:70%;}.w-p80{width: 80%;}.w-p90{width:90%;}.w-p100{width:100%;}
-.h-20{height:20px}.h-30{height: 30px;}.h-50{height: 50px;}.h-100{height: 100px;}
+.h-20{height:20px}.h-30{height: 30px;}.h-50{height: 50px;}.h-100{height: 100px;}.h-250{height: 250px;}.h-260{height: 260px;}
 .m-t-5{margin-top: 5px;}.m-t-15{margin-top: 15px;}.m-t-25{margin-top: 25px;}.m-t-35{margin-top: 35px;}.m-t-45{margin-top: 45px;}
 .m-t-10{margin-top: 10px;}.m-t-20{margin-top: 20px;}.m-t-30{margin-top: 30px;}.m-t-40{margin-top: 40px;}.m-t-50{margin-top: 50px;}
 .m-l-5{margin-left: 5px;}.m-l-15{margin-left: 15px;}.m-l-25{margin-left: 25px;}.m-l-35{margin-left: 35px;}.m-l-45{margin-left: 45px;}

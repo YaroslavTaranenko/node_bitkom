@@ -14,8 +14,8 @@
             templateUrl: "templates/calls.jade",
             controller: function($location, $scope, $http){
                 //alert('top-panel');
-                $scope.path = $location.url();
-                alert($scope.path);
+//                $scope.path = $location.path();
+//                alert($scope.path);
             },
             controllerAs: "hd"
         };

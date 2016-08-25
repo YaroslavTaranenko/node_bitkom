@@ -79,21 +79,73 @@ header{
 
     background-color: #eee;
 }
-/*[tip]:hover:before{
-    position: absolute;
-    top: -7px;
-    left: 7px;
+/* =================================== products =====================================*/
+#product-form{
+    width: 700px;
+    height: 500px;
+    background-color: #fff;
+    margin: calc(50vh - 255px) auto 0 auto;
+    position: relative;
+        
+}
+#product-form .tabs{
+   margin: auto;
+   width: 100%;
+}
+#product-form .tabs li{
+   display: inline-block;
+   margin: 5px 0 0 0;
+   width: 33.3%;
+   text-align: center;
+   border: 1px solid #6d9fd4;
+   border-radius: 15px 15px 0 0;
+   cursor: pointer;
+   padding: 5px 0;
+   font-weight: bold;
+   font-size: 14px;
+}
+#product-form .tabs li:hover{
+    background-color: #ccf;
+}
+form-group{
     display: block;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-
-    border-top: 7px solid #f00;
-
-
-    content: '#';
-    text-indent:  -10000px;
-    pointer-events: none;
-    z-index: 100;
-}*/
+    padding: 5px 10px;
+    margin: 5px auto;
+    width: 98%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#product-form .footer{
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#product-form .tab-content{
+    overflow-y: scroll;
+    height: calc(100% - 85px);
+    
+}
+.img-btn{
+    display: inline-block;
+    width: 250px;
+    overflow: hidden;
+}
+.thumb{
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+}
+.thumb>img{
+    width: 250px;
+    height: 250px;
+}
+#product-form .thumb{
+    float: right;
+}
+textarea{
+    resize: vertical;
+}

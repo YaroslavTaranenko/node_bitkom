@@ -2,7 +2,7 @@
  * Created by yaroslav on 8/10/16.
  */
 (function() {
-    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu', "myHeader"]);
+    var app = angular.module('bitkom', ['templates', 'ngAnimate', "panelTop", 'mainMenu', "myHeader", 'mySlider']);
 
     app.directive("scroll", function ($window) {
         return function (scope, element, attrs) {
@@ -16,9 +16,13 @@
             });
         };
     });
+    app.controller('mainCtrl', function($scope){
+        $scope.slides = [{title: 'slide 1'}, {title: 'slide 2'}, {title: 'slide 3'}, {title: 'slide 5'}];
+    });
 
     app.controller('TestCtlr', function(){
         //alert('test');
+        
     });
 
 })();
