@@ -17,7 +17,12 @@
         };
     });
     app.controller('mainCtrl', function($scope){
-        $scope.slides = [{title: 'slide 1'}, {title: 'slide 2'}, {title: 'slide 3'}, {title: 'slide 5'}];
+        $scope.slides = [
+            {title: 'slide 1', mainPic:'10190337.jpg', desc:'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.'}, 
+            {title: 'slide 2', mainPic:'567.jpg.png', desc:'В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов.'}, 
+            {title: 'slide 3', mainPic:'Untitled.png', desc:'Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.'}, 
+            {title: 'slide 5', mainPic:'batman.jpg', desc:'Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.'}
+        ];
     });
 
     app.controller('TestCtlr', function(){
@@ -183,38 +188,50 @@
             scope: {
                 slids: "="
             },
-            controller: function($scope, $http){
-                this.cIndex = 0;
-                this.next = function(){
+            controller:['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+                $scope.cIndex = 0;
+                $scope.next = function(){
                     
-                    if(this.cIndex >= $scope.slids.length - 1){
-                        this.cIndex = 0;
+                    if($scope.cIndex >= $scope.slids.length - 1){
+                        $scope.cIndex = 0;
                     }else{
-                        this.cIndex++;
+                        $scope.cIndex++;
                     }
-                    //alert(this.cIndex);
-                    this.changeSlide();
+                    //alert($scope.cIndex);
+                    $scope.changeSlide();
                 };
-                this.changeSlide = function(){
+                $scope.changeSlide = function(){
                     
                     for(var i = 0; i < $scope.slids.length; i++){
                         $scope.slids[i].show = false;
                     };
                     
-                    $scope.slids[this.cIndex].show = true;
+                    $scope.slids[$scope.cIndex].show = true;
                     //alert($scope.slids.length);
                 };
-                this.showSlide = function(idx){                    
+                $scope.showSlide = function(idx){                    
                     if(idx > ($scope.slids.length - 1)){
                         return;
                     }else{
-                        this.cIndex = idx;
+                        $scope.cIndex = idx;
                     }
                     
-                    this.changeSlide();
+                    $scope.changeSlide();
                 };
-                this.showSlide(0);
-            },
+                $scope.play = function() {
+                    //alert('ok');
+                    timeout = $timeout(
+                        function() {
+                            $scope.next();
+                            $scope.play();
+                            
+                        }, 2000
+                    );
+                };
+                //this.showSlide(0);
+                
+                $scope.play();
+            }],
             controllerAs: "sl"
         };
     });
@@ -281,7 +298,7 @@ angular.module("templates/main-menu.jade", []).run(["$templateCache", function($
 
 angular.module("templates/slider.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/slider.jade",
-    "<div id=\"main-slider\"><ul><li ng-repeat=\"slide in slids\" ng-show=\"slide.show\" class=\"animation-fade\">{{slide.title}}</li></ul><button ng-click=\"sl.next()\">Next</button></div>");
+    "<div id=\"main-slider\"><ul><li ng-repeat=\"slide in slids\" ng-show=\"slide.show\" class=\"animation-fade\"><img ng-src=\"/images/menu/{{slide.mainPic}}\" class=\"slide-img\"><div class=\"slide-desc\"><span class=\"slide-title\">{{slide.title}}</span><span class=\"slide-preview\">{{slide.desc}}</span></div></li></ul><button ng-click=\"next()\">Next</button></div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

@@ -223,13 +223,34 @@ header{
      opacity: 0;
      position: absolute;
 }
+/*=================================== slider ====================================*/
 #main-slider>ul{
     height: 300px;
     width: 100%;
     
 }
 #main-slider>ul>li{
-    height: 200px;
-    width: 100%;
+    height: 270px;
+    width: 1000px;
     border: 1px solid black;
+}
+.slide-img{
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 0 0 5px 5px rgba(0,0,0, .3);
+}
+.slide-title{
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    text-align: center;
+}
+.slide-desc{
+    display: inline-block;
+    width: calc(100% - 275px);
+    float: right;
 }

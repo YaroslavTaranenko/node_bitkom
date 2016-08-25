@@ -19,7 +19,7 @@ angular.module("templates/main-menu.jade", []).run(["$templateCache", function($
 
 angular.module("templates/slider.jade", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/slider.jade",
-    "<div id=\"main-slider\"><ul><li ng-repeat=\"slide in slids\" ng-show=\"slide.show\" class=\"animation-fade\">{{slide.title}}</li></ul><button ng-click=\"sl.next()\">Next</button></div>");
+    "<div id=\"main-slider\"><ul><li ng-repeat=\"slide in slids\" ng-show=\"slide.show\" class=\"animation-fade\"><img ng-src=\"/images/menu/{{slide.mainPic}}\" class=\"slide-img\"><div class=\"slide-desc\"><span class=\"slide-title\">{{slide.title}}</span><span class=\"slide-preview\">{{slide.desc}}</span></div></li></ul><button ng-click=\"next()\">Next</button></div>");
 }]);
 
 angular.module("templates/test.jade", []).run(["$templateCache", function($templateCache) {

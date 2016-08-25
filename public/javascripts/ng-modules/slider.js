@@ -13,38 +13,50 @@
             scope: {
                 slids: "="
             },
-            controller: function($scope, $http){
-                this.cIndex = 0;
-                this.next = function(){
+            controller:['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+                $scope.cIndex = 0;
+                $scope.next = function(){
                     
-                    if(this.cIndex >= $scope.slids.length - 1){
-                        this.cIndex = 0;
+                    if($scope.cIndex >= $scope.slids.length - 1){
+                        $scope.cIndex = 0;
                     }else{
-                        this.cIndex++;
+                        $scope.cIndex++;
                     }
-                    //alert(this.cIndex);
-                    this.changeSlide();
+                    //alert($scope.cIndex);
+                    $scope.changeSlide();
                 };
-                this.changeSlide = function(){
+                $scope.changeSlide = function(){
                     
                     for(var i = 0; i < $scope.slids.length; i++){
                         $scope.slids[i].show = false;
                     };
                     
-                    $scope.slids[this.cIndex].show = true;
+                    $scope.slids[$scope.cIndex].show = true;
                     //alert($scope.slids.length);
                 };
-                this.showSlide = function(idx){                    
+                $scope.showSlide = function(idx){                    
                     if(idx > ($scope.slids.length - 1)){
                         return;
                     }else{
-                        this.cIndex = idx;
+                        $scope.cIndex = idx;
                     }
                     
-                    this.changeSlide();
+                    $scope.changeSlide();
                 };
-                this.showSlide(0);
-            },
+                $scope.play = function() {
+                    //alert('ok');
+                    timeout = $timeout(
+                        function() {
+                            $scope.next();
+                            $scope.play();
+                            
+                        }, 2000
+                    );
+                };
+                //this.showSlide(0);
+                
+                $scope.play();
+            }],
             controllerAs: "sl"
         };
     });

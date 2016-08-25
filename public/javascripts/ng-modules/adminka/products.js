@@ -17,7 +17,7 @@
                 this.cTab = 'props';
                 $scope.form = {tmp: {}};
                 this.addProd = function(){
-                    $http.post('/admin/insert/products', {item: this.tmp})
+                    $http.post('/admin/save/products', {item: this.tmp})
                         .then(function(response){}, function(err){alert(err.data)});
                 };
                 

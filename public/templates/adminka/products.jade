@@ -47,6 +47,17 @@ button(ng-click="prod.add()") add
             form-group
                 label.iblock.w-p100 Описание
                 textarea.w-p90(ng-model="form.tmp.preview")
+                
+        .tab-content(ng-show="prod.checkTab('full')")
+            form-group
+                label.iblock.w-p100 Изображение
+                .img-btn
+                    input(type="file" ngf-select ng-model="form.tmp.mainPic" name="file"
+                        accept="image/*" ngf-max-size="2MB" required
+                        ngf-model-invalid="errorFile")
+                .thumb
+                    img(ngf-thumbnail="form.tmp.mainPic")
+                    
         .footer
             button Ok
             button Cancel
